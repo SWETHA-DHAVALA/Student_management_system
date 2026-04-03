@@ -1,0 +1,318 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e73df, #6a82fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-box {
+            background: white;
+            width: 500px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 35px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4e73df;
+            margin-bottom: 15px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4e73df;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background-color: #2e59d9;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .login-link a {
+            text-decoration: none;
+            color: #4e73df;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-box">
+        <h2>Student Registration</h2>
+
+        <form onsubmit="registerUser(event)">
+            <input type="text" placeholder="Student Name" required>
+            <input type="text" placeholder="Roll Number" required>
+            <input type="text" placeholder="Section" required>
+            
+            <select required>
+                <option value="">Select Department</option>
+                <option>CSE</option>
+                <option>AIML</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>Mechanical</option>
+                <option>DS </option>
+                <option>Civil</option>
+                <option>IT</option>
+                <option>Agriculture</option>
+            </select>
+
+            <select required>
+                <option value="">Select Year of Study</option>
+                <option>1st Year</option>
+                <option>2nd Year</option>
+                <option>3rd Year</option>
+                <option>4th Year</option>
+            </select>
+
+            <input type="text" placeholder="Father Name" required>
+            <input type="text" placeholder="Mother Name" required>
+            <input type="tel" placeholder="Student Mobile Number" required>
+            <input type="tel" placeholder="Parent Mobile Number" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="login-link">
+            Already have account? <a href="login1.html">Login</a>
+        </div>
+    </div>
+
+    <script>
+        function registerUser(event) {
+            event.preventDefault();
+            alert("Registration Successful!");
+            window.location.href = "dashboard.html";
+        }
+    </script>
+
+</body>
+</html> -->
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Student Registration</title>
+
+        <style>
+
+            body{
+                margin:0;
+                font-family:Arial, sans-serif;
+                background:linear-gradient(to right,#4e73df,#6a82fb);
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height:100vh;
+            }
+
+            .register-box{
+                background:white;
+                width:500px;
+                padding:25px;
+                border-radius:15px;
+                box-shadow:0px 15px 35px rgba(0,0,0,0.3);
+                overflow-y:auto;
+                max-height:90vh;
+            }
+
+            h2{
+                text-align:center;
+                color:#4e73df;
+                margin-bottom:15px;
+            }
+
+            input,select{
+                width:100%;
+                padding:10px;
+                margin:6px 0;
+                border-radius:6px;
+                border:1px solid #ccc;
+            }
+
+            button{
+                width:100%;
+                padding:10px;
+                margin-top:10px;
+                border:none;
+                border-radius:8px;
+                background-color:#4e73df;
+                color:white;
+                cursor:pointer;
+                font-size:15px;
+            }
+
+            button:hover{
+                background-color:#2e59d9;
+            }
+
+            .login-link{
+                text-align:center;
+                margin-top:10px;
+            }
+
+            .login-link a{
+                text-decoration:none;
+                color:#4e73df;
+                font-weight:bold;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+    <div class="register-box">
+
+    <h2>Student Registration</h2>
+
+    <form id="registerForm">
+
+    <input type="text" id="name" placeholder="Student Name" required>
+
+    <input type="text" id="rollNumber" placeholder="Roll Number" required>
+
+    <input type="text" id="section" placeholder="Section" required>
+
+    <select id="department" required>
+    <option value="">Select Department</option>
+    <option>CSE</option>
+    <option>AIML</option>
+    <option>ECE</option>
+    <option>EEE</option>
+    <option>Mechanical</option>
+    <option>DS</option>
+    <option>Civil</option>
+    <option>IT</option>
+    <option>Agriculture</option>
+    </select>
+
+    <select id="yearOfStudy" required>
+    <option value="">Select Year of Study</option>
+    <option>1st Year</option>
+    <option>2nd Year</option>
+    <option>3rd Year</option>
+    <option>4th Year</option>
+    </select>
+
+    <input type="text" id="fatherName" placeholder="Father Name" required>
+
+    <input type="text" id="motherName" placeholder="Mother Name" required>
+
+    <input type="tel" id="studentPhone" placeholder="Student Mobile Number" required>
+
+    <input type="tel" id="parentPhone" placeholder="Parent Mobile Number" required>
+
+    <input type="password" id="password" placeholder="Password" required>
+
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+    <button type="submit">Register</button>
+
+    </form>
+
+    <div class="login-link">
+    Already have account? <a href="login1.html">Login</a>
+    </div>
+
+    </div>
+
+    <script>
+
+    document.getElementById("registerForm").addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+    try{
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if(password !== confirmPassword){
+    alert("Passwords do not match");
+    return;
+    }
+
+    const studentData = {
+
+    name: document.getElementById("name").value,
+    rollNumber: document.getElementById("rollNumber").value,
+    section: document.getElementById("section").value,
+    department: document.getElementById("department").value,
+    yearOfStudy: document.getElementById("yearOfStudy").value,
+    fatherName: document.getElementById("fatherName").value,
+    motherName: document.getElementById("motherName").value,
+    studentPhone: document.getElementById("studentPhone").value,
+    parentPhone: document.getElementById("parentPhone").value,
+    password: password
+
+    };
+
+    const response = await fetch("http://localhost:3000/register",{
+
+    method:"POST",
+
+    headers:{
+    "Content-Type":"application/json"
+    },
+
+    body:JSON.stringify(studentData)
+
+    });
+    if(!response.ok){
+        throw new Error("Server not responding");
+    }
+
+    const data = await response.json();
+
+    alert(data.message);
+
+
+    window.location.href="login1.html";
+
+
+    }
+    catch(error){
+    console.log(error);
+    alert("Error: Backend not connected or server issue");
+    }
+});
+    </script>
+
+    </body>
+    </html>

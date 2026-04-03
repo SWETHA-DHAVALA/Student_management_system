@@ -1,0 +1,188 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<title>Academics</title>
+</head>
+<body>
+<h2>Academics</h2>
+<div id="academics"></div>
+
+<script>
+let academics = [
+    {subject:"Math", marks:90, gradePoint:9},
+    {subject:"Physics", marks:80, gradePoint:8},
+    {subject:"Chemistry", marks:70, gradePoint:7}
+];
+let totalSubjects = academics.length;
+let totalPoints = 0;
+let pass = 0, fail = 0;
+let html = "";
+academics.forEach(a=>{
+    html += `Subject: ${a.subject}, Marks: ${a.marks}, Grade Point: ${a.gradePoint}<br>`;
+    totalPoints += a.gradePoint;
+    a.marks >= 40 ? pass++ : fail++;
+});
+let cgpa = (totalPoints / totalSubjects).toFixed(2);
+html += `<br>Total Pass: ${pass}, Total Fail: ${fail}, CGPA: ${cgpa}`;
+document.getElementById("academics").innerHTML = html;
+</script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Academic Details</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f6c23e, #f8d76e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .academic-box {
+            background: white;
+            width: 500px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 35px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h2 {
+            color: #e0a800;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f6c23e;
+            padding: 8px;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+        }
+
+        .back-btn button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #f6c23e;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-btn button:hover {
+            background: #e0a800;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="academic-box">
+        <h2>Academic Details</h2>
+
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Mathematics</td>
+                <td id="m1"></td>
+                <td id="s1"></td>
+            </tr>
+            <tr>
+                <td>Data Structures</td>
+                <td id="m2"></td>
+                <td id="s2"></td>
+            </tr>
+            <tr>
+                <td>Operating Systems</td>
+                <td id="m3"></td>
+                <td id="s3"></td>
+            </tr>
+            <tr>
+                <td>DBMS</td>
+                <td id="m4"></td>
+                <td id="s4"></td>
+            </tr>
+            <tr>
+                <td>AI Fundamentals</td>
+                <td id="m5"></td>
+                <td id="s5"></td>
+            </tr>
+        </table>
+
+        <div class="result">
+            <p>Total Passed: <span id="passCount"></span></p>
+            <p>Total Failed: <span id="failCount"></span></p>
+            <p>CGPA: <span id="cgpa"></span></p>
+        </div>
+
+        <div class="back-btn">
+            <button onclick="goBack()">Back to Dashboard</button>
+        </div>
+    </div>
+
+    <script>
+        let marks = [85, 72, 65, 40, 90]; // Manual marks
+        let subjects = 5;
+        let pass = 0;
+        let fail = 0;
+        let total = 0;
+
+        for (let i = 0; i < subjects; i++) {
+            total += marks[i];
+
+            document.getElementById("m" + (i+1)).innerText = marks[i];
+
+            if (marks[i] >= 50) {
+                document.getElementById("s" + (i+1)).innerText = "Pass";
+                document.getElementById("s" + (i+1)).style.color = "green";
+                pass++;
+            } else {
+                document.getElementById("s" + (i+1)).innerText = "Fail";
+                document.getElementById("s" + (i+1)).style.color = "red";
+                fail++;
+            }
+        }
+
+        let average = total / subjects;
+        let cgpa = (average / 10).toFixed(2); // Simple CGPA formula
+
+        document.getElementById("passCount").innerText = pass;
+        document.getElementById("failCount").innerText = fail;
+        document.getElementById("cgpa").innerText = cgpa;
+
+        function goBack() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+
+</body>
+</html>

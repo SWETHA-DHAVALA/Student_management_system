@@ -1,0 +1,251 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e73df, #6a82fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .details-container {
+            background: white;
+            width: 500px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #4e73df;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4e73df;
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            font-size: 15px;
+            margin: 8px 0;
+            padding: 8px;
+            background: #f8f9fc;
+            border-radius: 6px;
+        }
+
+        .info strong {
+            color: #2e59d9;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-btn button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #4e73df;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-btn button:hover {
+            background: #2e59d9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="details-container">
+        
+        <div class="profile">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student Photo">
+        </div>
+
+        <h2>Student Details</h2>
+
+        <div class="info">
+            <p><strong>Name:</strong> Swetha</p>
+            <p><strong>Father Name:</strong> Santhosh</p>
+            <p><strong>Mother Name:</strong> Padma</p>
+            <p><strong>Roll No:</strong> 24B11AI087</p>
+            <p><strong>Year of Joining:</strong> 2024</p>
+            <p><strong>Currently Pursuing:</strong> B.Tech 2nd Year</p>
+            <p><strong>Branch:</strong> AIML (AI)</p>
+            <p><strong>Section:</strong> A</p>
+            <p><strong>Student Mobile:</strong> 9876543210</p>
+            <p><strong>Parent Mobile:</strong> 9123456780</p>
+        </div>
+
+        <div class="back-btn">
+            <button onclick="goBack()">Back to Dashboard</button>
+        </div>
+
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e73df, #6a82fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .details-container {
+            background: white;
+            width: 500px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #4e73df;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4e73df;
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            font-size: 15px;
+            margin: 8px 0;
+            padding: 8px;
+            background: #f8f9fc;
+            border-radius: 6px;
+        }
+
+        .info strong {
+            color: #2e59d9;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-btn button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #4e73df;
+            color: white;
+            cursor: pointer;
+        }
+
+        .back-btn button:hover {
+            background: #2e59d9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="details-container">
+    
+    <div class="profile">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student Photo">
+    </div>
+
+    <h2>Student Details</h2>
+
+    <div class="info">
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Father Name:</strong> <span id="father"></span></p>
+        <p><strong>Mother Name:</strong> <span id="mother"></span></p>
+        <p><strong>Roll No:</strong> <span id="roll"></span></p>
+        <p><strong>Year of Study:</strong> <span id="year"></span></p>
+        <p><strong>Department:</strong> <span id="dept"></span></p>
+        <p><strong>Section:</strong> <span id="section"></span></p>
+        <p><strong>Student Mobile:</strong> <span id="studentPhone"></span></p>
+        <p><strong>Parent Mobile:</strong> <span id="parentPhone"></span></p>
+    </div>
+
+    <div class="back-btn">
+        <button onclick="goBack()">Back to Dashboard</button>
+    </div>
+
+</div>
+
+<script>
+
+// 🔥 Get data from localStorage
+const student = JSON.parse(localStorage.getItem("student"));
+
+if(student){
+
+document.getElementById("name").innerText = student.name;
+document.getElementById("father").innerText = student.fatherName;
+document.getElementById("mother").innerText = student.motherName;
+document.getElementById("roll").innerText = student.rollNumber;
+document.getElementById("year").innerText = student.yearOfStudy;
+document.getElementById("dept").innerText = student.department;
+document.getElementById("section").innerText = student.section;
+document.getElementById("studentPhone").innerText = student.studentPhone;
+document.getElementById("parentPhone").innerText = student.parentPhone;
+
+}else{
+
+// ❌ If not logged in
+window.location.href = "login1.html";
+
+}
+
+// 🔙 Back button
+function goBack() {
+    window.location.href = "dashboard.html";
+}
+
+</script>
+
+</body>
+</html>

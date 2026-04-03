@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fill Details</title>
+</head>
+<body>
+<h2>Fill Student Details</h2>
+<input type="text" id="name" placeholder="Student Name"><br>
+<input type="text" id="father" placeholder="Father Name"><br>
+<input type="text" id="mother" placeholder="Mother Name"><br>
+<input type="text" id="roll" placeholder="Roll No"><br>
+<input type="number" id="yearJoining" placeholder="Year of Joining"><br>
+<input type="text" id="currentYear" placeholder="Currently Studying"><br>
+<input type="text" id="branch" placeholder="Branch"><br>
+<input type="text" id="section" placeholder="Section"><br>
+<input type="text" id="parentMobile" placeholder="Parent Mobile"><br>
+<input type="text" id="studentMobile" placeholder="Student Mobile"><br>
+<select id="hosteller">
+    <option value="Yes">Hosteller</option>
+    <option value="No">Non-Hosteller</option>
+</select><br>
+<button onclick="submitDetails()">Submit Details</button>
+
+<script>
+function submitDetails() {
+    let studentDetails = {
+        name: document.getElementById("name").value,
+        father: document.getElementById("father").value,
+        mother: document.getElementById("mother").value,
+        roll: document.getElementById("roll").value,
+        yearJoining: document.getElementById("yearJoining").value,
+        currentYear: document.getElementById("currentYear").value,
+        branch: document.getElementById("branch").value,
+        section: document.getElementById("section").value,
+        parentMobile: document.getElementById("parentMobile").value,
+        studentMobile: document.getElementById("studentMobile").value,
+        hosteller: document.getElementById("hosteller").value,
+        photo: ""
+    };
+
+    localStorage.setItem("studentDetails", JSON.stringify(studentDetails));
+    alert("Details saved!");
+    window.location.href = "dashboard.html";
+}
+</script>
+</body>
+</html>

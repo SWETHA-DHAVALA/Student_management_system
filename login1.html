@@ -1,0 +1,258 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("C:/Users/Dhavala Swetha/Downloads/nature1.jpg") no-repeat center/cover;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-box {
+            width: 350px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 30px;
+            color: #2e59d9;
+        }
+
+        .login-box input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .login-box button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 15px;
+            background-color: #2e59d9;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-box button:hover {
+            background-color: #1b3dbd;
+        }
+
+        .login-box p {
+            margin-top: 15px;
+        }
+
+        .login-box a {
+            color: #2e59d9;
+            text-decoration: none;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Student Login</h2>
+        <input type="text" id="username" placeholder="Username"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+        <button onclick="login()">Login</button>
+        <p>New User? <a href="register1.html">Register</a></p>
+    </div>
+
+    <script>
+            document.getElementById("loginForm").addEventListener("submit", async function(e){
+
+            e.preventDefault();
+
+            const rollNumber = document.getElementById("roll").value;
+            const password = document.getElementById("password").value;
+
+            const response = await fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ rollNumber, password })
+            });
+
+            const data = await response.json();
+
+            if(data.success){
+
+            alert("Login Successful");
+
+            // store data
+            localStorage.setItem("student", JSON.stringify(data.student));
+
+            // go to dashboard
+            window.location.href = "dashboard.html";
+
+            }else{
+            alert("Invalid Roll Number or Password");
+            }
+
+});
+</script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("C:/Users/Dhavala Swetha/Downloads/nature1.jpg") no-repeat center/cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-box {
+            width: 350px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 30px;
+            color: #2e59d9;
+        }
+
+        .login-box input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .login-box button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 15px;
+            background-color: #2e59d9;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .login-box button:hover {
+            background-color: #1b3dbd;
+        }
+
+        .login-box p {
+            margin-top: 15px;
+        }
+
+        .login-box a {
+            color: #2e59d9;
+            text-decoration: none;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h2>Student Login</h2>
+
+    <!-- ✅ FORM ADDED -->
+    <form id="loginForm">
+
+        <input type="text" id="roll" placeholder="Roll Number" required>
+
+        <input type="password" id="password" placeholder="Password" required>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <p>New User? <a href="register1.html">Register</a></p>
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+try{
+
+const rollNumber = document.getElementById("roll").value;
+const password = document.getElementById("password").value;
+
+const response = await fetch("http://localhost:3000/login", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({ rollNumber, password })
+});
+
+const data = await response.json();
+
+console.log(data); // debug
+
+if(data.success){
+
+alert("Login Successful");
+
+localStorage.setItem("student", JSON.stringify(data.student));
+
+window.location.href = "dashboard.html";
+
+}else{
+
+alert("Invalid Roll Number or Password");
+
+}
+
+}catch(error){
+
+console.log(error);
+alert("Error connecting to backend");
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Background Image */
+            background: url("C:\Users\Dhavala Swetha\Downloads\nature.jpg") 
+                        no-repeat center center/cover;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* Light overlay */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 30px rgba(0,0,0,0.3);
+        }
+
+        img {
+            width: 350px;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            margin-top: 15px;
+            color: #2e59d9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Clickable Image -->
+        <a href="login1.html">
+            <img src="studentimg.jpg">
+        </a>
+
+        <!-- Text Under Image -->
+        <h2>Welcome to Our University</h2>
+
+    </div>
+
+</body>
+</html>

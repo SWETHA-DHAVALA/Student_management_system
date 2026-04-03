@@ -1,0 +1,151 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<title>Fee Details</title>
+</head>
+<body>
+<h2>Fee Details</h2>
+<div id="fees"></div>
+
+<script>
+let fees = {
+    totalFee: 50000,
+    paidAmount: 30000
+};
+let due = fees.totalFee - fees.paidAmount;
+document.getElementById("fees").innerHTML = `
+Total Fee: ${fees.totalFee}<br>
+Paid: ${fees.paidAmount}<br>
+Due: ${due}
+`;
+</script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fee Details</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e74a3b, #f6a5a5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .fee-box {
+            background: white;
+            width: 450px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 35px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h2 {
+            color: #e74a3b;
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .progress-container {
+            width: 100%;
+            background: #eee;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .progress-bar {
+            height: 20px;
+            width: 0%;
+            background: #e74a3b;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        .status {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .back-btn {
+            margin-top: 25px;
+        }
+
+        .back-btn button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #e74a3b;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-btn button:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fee-box">
+        <h2>Fee Details</h2>
+
+        <div class="info">
+            <p><strong>Total Fee:</strong> ₹ 1,00,000</p>
+            <p><strong>Paid Amount:</strong> ₹ <span id="paid"></span></p>
+            <p><strong>Due Amount:</strong> ₹ <span id="due"></span></p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="status" id="status"></div>
+
+        <div class="back-btn">
+            <button onclick="goBack()">Back to Dashboard</button>
+        </div>
+    </div>
+
+    <script>
+        let totalFee = 100000;
+        let paidAmount = 75000; // Manual value
+
+        let dueAmount = totalFee - paidAmount;
+        let percentPaid = (paidAmount / totalFee) * 100;
+        percentPaid = percentPaid.toFixed(2);
+
+        document.getElementById("paid").innerText = paidAmount;
+        document.getElementById("due").innerText = dueAmount;
+        document.getElementById("progressBar").style.width = percentPaid + "%";
+        document.getElementById("progressBar").innerText = percentPaid + "% Paid";
+
+        if (dueAmount === 0) {
+            document.getElementById("status").innerText = "Status: Fully Paid ✅";
+            document.getElementById("status").style.color = "green";
+        } else {
+            document.getElementById("status").innerText = "Status: Pending ❌";
+            document.getElementById("status").style.color = "red";
+        }
+
+        function goBack() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+
+</body>
+</html>
